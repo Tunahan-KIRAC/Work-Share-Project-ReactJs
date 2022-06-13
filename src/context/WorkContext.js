@@ -1,4 +1,4 @@
-import axios from "axios";
+//import axios from "axios";
 import { createContext, useContext, useEffect, useState } from "react";
 
 const WorkContext = createContext();
@@ -7,6 +7,8 @@ export const WorkProvider = ({ children }) => {
   const [works, setWorks] = useState();
   const [show, setShow] = useState(false);
   const [categories, setCategories] = useState();
+  const [worksid, setWorksid] = useState();
+  const [aid, setaid] = useState();
 
   /* useEffect(() => {
        try {
@@ -25,8 +27,12 @@ export const WorkProvider = ({ children }) => {
     setShow,
     works,
     setWorks,
+    worksid,
+    setWorksid,
     categories,
-    setCategories
+    setCategories,
+    aid,
+    setaid
     
   };
 

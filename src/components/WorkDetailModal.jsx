@@ -1,32 +1,54 @@
-import React from 'react'
+import { useEffect } from 'react'
 import { Button, Modal } from 'react-bootstrap'
 import { useWork } from '../context/WorkContext'
+import { getWorksByWorkid } from '../api/workApi'
 
 
 const WorkDetailModal = () => {
 
-    const {show, setShow} = useWork()
-    
+  const { show, setShow, worksid, setWorksid,aid } = useWork()
 
-    const handleClose = () => {
-        setShow(false)
+
+  const handleClose = () => {
+    setShow(false)
+  }
+
+  useEffect(() => {
+    try {
+      getWorksByWorkid(aid).then((res) => {
+        console.log(res.data)
+        setWorksid(res.data);
+        
+      }) 
+    } catch(err) {
+      console.log(err)
     }
+    
+    },[])
+
 
   return (
-    <Modal show={show} onHide={handleClose}>
+    <div>
+      {worksid?.map((item)=>
+      
+      <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>{item.title}</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+        <Modal.Body>{item.price}</Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
-            Close
+            Kapat
           </Button>
           <Button variant="primary" onClick={handleClose}>
-            Save Changes
+            Teklif Ver
           </Button>
         </Modal.Footer>
       </Modal>
+      )}
+      
+    </div>
+    
   )
 }
 

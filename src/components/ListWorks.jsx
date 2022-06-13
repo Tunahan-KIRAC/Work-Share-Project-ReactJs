@@ -5,12 +5,13 @@ import { useWork } from "../context/WorkContext";
 import WorkDetailModal from "./WorkDetailModal";
 
 export const ListWorks = () => {
-  const { setShow, works, setWorks } = useWork();
+  const { setShow, works, setWorks ,aid,setaid} = useWork();
 
-  const handleButton = (id) => {
-    setShow(true);
-    const gelenid=id
-    console.log(id)
+  const handleButton = (a) => {
+    setaid(a)
+    console.log(aid)
+    setShow(true);    
+    
   }
 
   useEffect(() => {
@@ -18,6 +19,7 @@ export const ListWorks = () => {
       getWorks().then((res) => {
         console.log(res.data)
         setWorks(res.data);
+        
       }) 
     } catch(err) {
       console.log(err)

@@ -13,6 +13,14 @@ export function getCategories() {
     })
 }
 
+export function getWorksByWorkid(id) {
+    return request({
+        url: '/Work/'+id,
+        method: 'GET',
+        data:{id}
+    })
+}
+
 
 export function login(mail, password) {
     return request({
