@@ -6,12 +6,7 @@ export function getWorks() {
         method: 'GET',
     })
 }
-export function getCategories() {
-    return request({
-        url: '/Category',
-        method: 'GET',
-    })
-}
+
 
 export function getWorksByWorkid(id) {
     return request({
@@ -22,11 +17,5 @@ export function getWorksByWorkid(id) {
 }
 
 
-export function login(mail, password) {
-    return request({
-        url: '/login',
-        method: 'POST',
-        data: {mail, password}
-    })
-}
+
 

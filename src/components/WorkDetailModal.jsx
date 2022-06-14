@@ -12,6 +12,7 @@ const WorkDetailModal = () => {
   const handleClose = () => {
     setShow(false)
   }
+  console.log(show);
 
   useEffect(() => {
     try {
@@ -24,13 +25,12 @@ const WorkDetailModal = () => {
       console.log(err)
     }
     
-    },[])
+    },[aid])
 
 
   return (
     <div>
-      {worksid?.map((item)=>
-      
+      {worksid?.map((item)=>(
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>{item.title}</Modal.Title>
@@ -45,7 +45,7 @@ const WorkDetailModal = () => {
           </Button>
         </Modal.Footer>
       </Modal>
-      )}
+))}
       
     </div>
     

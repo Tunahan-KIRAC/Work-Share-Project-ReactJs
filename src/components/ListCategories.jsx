@@ -1,7 +1,6 @@
-
 import { useEffect } from 'react'
 import { Badge, ListGroup } from 'react-bootstrap'
-import { getCategories } from '../api/workApi'
+import { getCategories } from '../api/categoriesApi'
 import { useWork } from '../context/WorkContext'
 
 
@@ -34,7 +33,7 @@ export const ListCategories = () => {
                 <div className="ms-2 me-auto">
                     <div className="fw-bold">{item.title}</div>
                 </div>
-                <Badge bg="primary" pill>
+                <Badge bg="dark" pill>
                     14
                 </Badge>
             </ListGroup.Item>

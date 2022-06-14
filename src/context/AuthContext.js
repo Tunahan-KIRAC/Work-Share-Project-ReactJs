@@ -5,18 +5,18 @@ const AuthContext = createContext()
 
 export const AuthProvider = ({ children }) => {
 
-    const [mail, setMail] = useState()
-    const [password, setPassword] = useState()
+    const [email, seteMail] = useState()
+    const [epassword, setePassword] = useState()
     const [user, setUser] = useState()
 
 
     const values = {
         user,
         setUser,
-        mail,
-        setMail,
-        password,
-        setPassword
+        email,
+        seteMail,
+        epassword,
+        setePassword
     }
 
 

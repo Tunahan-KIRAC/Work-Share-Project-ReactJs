@@ -9,10 +9,16 @@ export const ListWorks = () => {
 
   const handleButton = (a) => {
     setaid(a)
-    console.log(aid)
-    setShow(true);    
+    setShow(true); 
+    //console.log(aid)
+       
     
   }
+
+  useEffect(()=>{
+    console.log(aid)
+    
+  },[aid])
 
   useEffect(() => {
     try {
@@ -34,9 +40,11 @@ export const ListWorks = () => {
           <Card.Body>
             <Card.Title>{item.title}</Card.Title>
             <Card.Text>
-              {item.description}
+              <p>{item.description}</p>
+              <p>{item.price}</p>
             </Card.Text>
-            <Button onClick={() => handleButton(item.id)} variant="primary">
+            
+            <Button onClick={() => handleButton(item.id)} variant="dark">
               Detays
             </Button>
           </Card.Body>
