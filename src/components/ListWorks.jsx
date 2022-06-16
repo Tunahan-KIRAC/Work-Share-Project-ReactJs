@@ -1,3 +1,4 @@
+import { wait } from "@testing-library/user-event/dist/utils";
 import React, { useEffect } from "react";
 import { Button, Card } from "react-bootstrap";
 import { getWorks } from "../api/workApi";
@@ -19,6 +20,8 @@ export const ListWorks = () => {
     console.log(aid)
     
   },[aid])
+
+ 
 
   useEffect(() => {
     try {

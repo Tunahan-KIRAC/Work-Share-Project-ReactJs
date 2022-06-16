@@ -14,11 +14,15 @@ const WorkDetailModal = () => {
   }
   console.log(show);
 
+
   useEffect(() => {
     try {
       getWorksByWorkid(aid).then((res) => {
-        console.log(res.data)
+        console.log('res.data')
+        console.log(res.data);
         setWorksid(res.data);
+        console.log('worksid');
+        console.log(worksid);
         
       }) 
     } catch(err) {
@@ -30,7 +34,7 @@ const WorkDetailModal = () => {
 
   return (
     <div>
-      {worksid?.map((item)=>(
+      {worksid?.map((item,index)=>(
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>{item.title}</Modal.Title>

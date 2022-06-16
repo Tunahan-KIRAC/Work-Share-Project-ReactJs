@@ -20,16 +20,15 @@ export const Login = () => {
 
   useEffect(() => {
     try {
-        login(email,epassword).then((res) => {
-            
-          console.log(res.data+"adsdasda")
-            
-            setUser(res.data)
+        login(email,epassword).then((res) => {            
+          console.log(res.data+"adsdasda")            
+          setUser(res.data)
+          console.log(user)
             
 
         })
     } catch (err) {
-        console.log(err)
+        //console.log(err)
     }
 }, [email,epassword])
 

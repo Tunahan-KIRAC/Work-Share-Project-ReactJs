@@ -12,7 +12,7 @@ export const WorkProvider = ({ children }) => {
 
   /* useEffect(() => {
        try {
-        axios.get("https://localhost:7031/api/Work").then((res) => {
+        axios.get("https://localhost:7031/api/Work/1").then((res) => {
            setWorks(res.data);
       });
      } catch (error) {
