@@ -1,7 +1,27 @@
-import React from 'react'
-import { Container, Form, FormControl, Nav, Navbar } from 'react-bootstrap'
+import { Container, Form, FormControl, Nav, Navbar,Button } from 'react-bootstrap'
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 
 const NavBar = () => {
+
+
+  let navigate = useNavigate()
+  const {user,setUser} = useAuth()
+
+  const Logout = () => {
+
+    localStorage.removeItem('user-data')
+    localStorage.removeItem('user-name')
+    setUser(false)
+    navigate('/login')
+  
+
+   }
+
+
+
+
+
     return (
         <Navbar bg="dark" variant='dark' expand="lg">
   <Container fluid>
@@ -19,8 +39,14 @@ const NavBar = () => {
         navbarScroll
       >        
         <Nav.Link href="/gorevler">Görevler</Nav.Link>
-        <Nav.Link href="/gorevVer">Görev Ver</Nav.Link>        
+        <Nav.Link href="/gorevVer">Görev Ver</Nav.Link>
+      {user && <div className='d-flex align-items-center text-white'>{localStorage.getItem('user-name')}</div>}
+        
       </Nav>
+           
+           
+           
+
       <Form className="d-flex">
       
         <FormControl
@@ -30,8 +56,11 @@ const NavBar = () => {
           aria-label="Search"
         />
       </Form>
-      <Nav.Link style={{color:"white"}} href="/login">Login</Nav.Link>
-      <Nav.Link style={{color:"white"}} href="/register">register</Nav.Link>
+      
+      {localStorage.getItem('user-data') && <Button onClick={Logout}>Çıkış Yap</Button>}
+      {!localStorage.getItem('user-data') &&  <><Nav.Link style={{color:"white"}} href="/login">Login</Nav.Link>
+      <Nav.Link style={{color:"white"}} href="/register">register</Nav.Link></>}
+      
     </Navbar.Collapse>
   </Container>
 </Navbar>

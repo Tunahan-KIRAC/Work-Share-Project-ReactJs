@@ -21,7 +21,7 @@ function App() {
         </Routes>
       </Router>
       <div>
-      <div style={{bottom:97,ovverFlow:"hidden",marginTop:100}}>
+      <div style={{bottom:100,overFlow:"hidden",marginTop:100}}>
         <Footer />
       </div>
       </div>

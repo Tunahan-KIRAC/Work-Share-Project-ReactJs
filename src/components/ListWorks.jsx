@@ -10,18 +10,12 @@ export const ListWorks = () => {
 
   const handleButton = (a) => {
     setaid(a)
-    setShow(true); 
-    //console.log(aid)
+    setShow(true);   
+    console.log(aid);
        
-    
+
   }
 
-  useEffect(()=>{
-    console.log(aid)
-    
-  },[aid])
-
- 
 
   useEffect(() => {
     try {

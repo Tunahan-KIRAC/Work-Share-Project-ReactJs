@@ -18,28 +18,27 @@ const WorkDetailModal = () => {
   useEffect(() => {
     try {
       getWorksByWorkid(aid).then((res) => {
-        console.log('res.data')
-        console.log(res.data);
+        //console.log('res.data')
+        console.log('res.data', res.data);
         setWorksid(res.data);
-        console.log('worksid');
-        console.log(worksid);
+        
         
       }) 
     } catch(err) {
       console.log(err)
     }
     
-    },[aid])
+    },[aid])  
 
 
   return (
     <div>
-      {worksid?.map((item,index)=>(
+      
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>{item.title}</Modal.Title>
+          <Modal.Title>{worksid?.title}</Modal.Title>
         </Modal.Header>
-        <Modal.Body>{item.price}</Modal.Body>
+        <Modal.Body>{worksid?.price}</Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Kapat
@@ -49,7 +48,7 @@ const WorkDetailModal = () => {
           </Button>
         </Modal.Footer>
       </Modal>
-))}
+
       
     </div>
     

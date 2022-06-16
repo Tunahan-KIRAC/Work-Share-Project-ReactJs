@@ -16,6 +16,13 @@ export function getWorksByWorkid(id) {
     })
 }
 
+export function addWork(input) {  
+    return request({
+        url: '/Work',
+        method: 'Post',
+        data:input
+    })
+}
 
 
 

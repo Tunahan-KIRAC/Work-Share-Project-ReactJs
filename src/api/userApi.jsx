@@ -4,10 +4,10 @@ import request from '../utils/request';
 
 export function login(mail,password) {
     return request({
-        url: '/login',
+        url: '/Login',
         method: 'POST',
         data: {
-            "mail": mail,
+            "email": mail,
             "password": password
         }
        
